@@ -1,0 +1,93 @@
+<footer class="bg-black text-white py-12">
+  <div class="mx-auto px-6 sm:px-12 lg:px-20">
+
+    <!-- Main layout: logo left, three columns right -->
+    <div class="flex flex-col lg:flex-row lg:items-start gap-10">
+
+      <!-- Logo + tagline + copyright (left side) -->
+      <div class="flex flex-col gap-4 lg:max-w-xs w-full">
+        <a routerLink="/" class="no-underline">
+          <img src="assets/logo.png" alt="Cobuld" class="h-13 w-auto object-contain" />
+        </a>
+        <p class="text-white text-sm max-w-[250px] leading-relaxed">
+          Connecting life-savers with those in need. Human-centric precision for a healthier world.
+        </p>
+        <p class="text-white text-xs mt-auto">© {{ year }} Cobuld Healthtech. All rights reserved.</p>
+      </div>
+
+      <!-- Right side: three columns -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 lg:ml-auto">
+
+        <!-- Navigation -->
+        <div class="flex flex-col gap-3">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-[#DC2626]">Navigation</h3>
+          <ul class="flex flex-col gap-2 list-none p-0 m-0">
+            @for (link of navLinks; track link.path) {
+              <li>
+                <a [routerLink]="link.path"
+                  class="footer-link relative inline-block text-gray-300 text-sm no-underline transition-colors duration-200 hover:text-white">
+                  {{ link.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="flex flex-col gap-3">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-[#DC2626]">Resources</h3>
+          <ul class="flex flex-col gap-2 list-none p-0 m-0">
+            @for (link of resourceLinks; track link.path) {
+              <li>
+                <a [routerLink]="link.path"
+                  class="footer-link relative inline-block text-gray-300 text-sm no-underline transition-colors duration-200 hover:text-white">
+                  {{ link.label }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+
+        <!-- Follow Us -->
+        <div class="flex flex-col gap-3">
+          <h3 class="text-sm font-semibold uppercase tracking-widest text-[#DC2626]">Follow Us</h3>
+          <div class="flex flex-row flex-wrap gap-4 items-center">
+            @for (social of socialLinks; track social.label) {
+              <a [href]="social.url" target="_blank" rel="noopener noreferrer"
+                class="social-icon text-gray-400 transition-all duration-200 hover:text-white hover:scale-110"
+                [attr.aria-label]="social.label">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path [attr.d]="social.svgPath" />
+                </svg>
+              </a>
+            }
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ef4444;
+    transition: width 0.25s ease;
+  }
+
+  .footer-link:hover::after {
+    width: 100%;
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>

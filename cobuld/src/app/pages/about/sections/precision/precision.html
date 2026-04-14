@@ -1,0 +1,30 @@
+<app-container>
+  <section class="py-16 lg:py-24 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
+    
+    <div class="w-full lg:w-1/2 flex justify-center">
+      <img 
+        [src]="PrecisionImage" 
+        alt="Precision Procedure" 
+        class="w-full max-w-2xl h-auto rounded-3xl shadow-2xl object-cover" 
+      />
+    </div>
+
+    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+      <h1 class="text-3xl md:text-5xl lg:text-[56px] text-black leading-tight mb-6">
+        Precision in Every <br class="hidden lg:block" /> Procedure.
+      </h1>
+      
+      <p class="text-base md:text-lg text-[#474747] leading-relaxed mb-8 max-w-xl">
+        The integrity of our network is built on trust and clinical rigor. 
+        We don't just facilitate donations; we orchestrate a lifecycle of care 
+        that respects the dignity of the donor and the urgency of the recipient.
+      </p>
+
+      <a routerLink="/contact" 
+         class="inline-block bg-[#ECECED] text-black px-8 py-4 rounded-[15px]  text-base  transition-all transform active:scale-95 shadow-lg">
+        Contact for More
+      </a>
+    </div>
+
+  </section>
+</app-container>
