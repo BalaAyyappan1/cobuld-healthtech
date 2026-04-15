@@ -4,7 +4,7 @@
     <!-- Main layout: logo left, three columns right -->
     <div class="flex flex-col lg:flex-row lg:items-start gap-10">
 
-      <!-- Logo + tagline + copyright (left side) -->
+      <!-- Logo + tagline (left side) -->
       <div class="flex flex-col gap-4 lg:max-w-xs w-full">
         <a routerLink="/" class="no-underline">
           <img src="assets/logo.png" alt="Cobuld" class="h-13 w-auto object-contain" />
@@ -12,7 +12,6 @@
         <p class="text-white text-sm max-w-[250px] leading-relaxed">
           Connecting life-savers with those in need. Human-centric precision for a healthier world.
         </p>
-        <p class="text-white text-xs mt-auto">© {{ year }} Coblud Healthtech. All rights reserved.</p>
       </div>
 
       <!-- Right side: three columns -->
@@ -55,7 +54,6 @@
             @for (social of socialLinks; track social.label) {
               <a [href]="social.url" target="_blank" rel="noopener noreferrer"
                 class="social-icon group flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-gray-400 transition-all duration-200"
-                [style.--hover-color]="social.hoverColor"
                 [attr.aria-label]="social.label">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
                   <path [attr.d]="social.svgPath" />
@@ -67,6 +65,13 @@
 
       </div>
     </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-gray-500">
+      <p class="text-white/60">© {{ year }} Coblud Healthtech. All rights reserved.</p>
+      <p>Designed & developed by <a href="https://www.layhigh.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-red-600 transition-colors duration-200 no-underline">Layhigh</a></p>
+    </div>
+
   </div>
 </footer>
 
@@ -93,9 +98,9 @@
   }
 
   .social-icon:hover {
-    color: var(--hover-color) !important;
-    border-color: var(--hover-color) !important;
-    background-color: color-mix(in srgb, var(--hover-color) 12%, transparent);
+    color: #ef4444 !important;
+    border-color: #ef4444 !important;
+    background-color: color-mix(in srgb, #ef4444 12%, transparent);
     transform: scale(1.1);
   }
 </style>
