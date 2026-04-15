@@ -11,7 +11,7 @@
 <div class="pointer-events-none absolute right-[-120px] top-1/2 -translate-y-1/2 w-[600px] h-[600px] 
 bg-[#B7131A]/20 rounded-full blur-xl">
 </div>
-    <div class="max-w-xl text-center md:text-left">
+    <div fadeIn class="max-w-xl text-center md:text-left">
       <span class="text-[#B7131A] font-bold tracking-[0.2em] text-sm mb-3 block">
         PHASE 01
       </span>
@@ -40,7 +40,7 @@ bg-[#B7131A]/20 rounded-full blur-xl">
   <!-- Top Content -->
   <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-12">
 
-    <div class="max-w-xl text-center md:text-left">
+    <div fadeIn class="max-w-xl text-center md:text-left">
       <span class="text-[#B7131A] font-bold tracking-[0.2em] text-xs md:text-sm mb-3 block">
         PHASE 02
       </span>
@@ -61,7 +61,7 @@ bg-[#B7131A]/20 rounded-full blur-xl">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
     <!-- Card 1 -->
-    <div class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
+    <div fadeIn class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
       <img [src]="WorksIcon1" alt="icon" class="w-12 h-12 md:w-14 md:h-14" />
 
       <h3 class="text-base md:text-lg font-bold text-gray-900">
@@ -74,7 +74,7 @@ bg-[#B7131A]/20 rounded-full blur-xl">
     </div>
 
     <!-- Card 2 -->
-    <div class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
+    <div fadeIn [fadeDelay]="100" class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
       <img [src]="WorksIcon2" alt="icon" class="w-12 h-12 md:w-14 md:h-14" />
 
       <h3 class="text-base md:text-lg font-bold text-gray-900">
@@ -87,7 +87,7 @@ bg-[#B7131A]/20 rounded-full blur-xl">
     </div>
 
     <!-- Card 3 -->
-    <div class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
+    <div fadeIn [fadeDelay]="200" class="flex flex-col items-start text-left gap-4 p-6 md:p-8 rounded-md bg-white shadow-sm hover:shadow-md transition">
       <img [src]="WorksIcon3" alt="icon" class="w-12 h-12 md:w-14 md:h-14" />
 
       <h3 class="text-base md:text-lg font-bold text-gray-900">
@@ -110,7 +110,7 @@ bg-[#B7131A]/20 rounded-full blur-xl">
 
   <div class="relative z-10 w-full   flex flex-col md:flex-row items-center justify-between gap-10">
 
-    <div class="max-w-xl text-center md:text-left">
+    <div fadeIn class="max-w-xl text-center md:text-left">
       <span class="text-white font-bold tracking-[0.2em] text-sm mb-3 block">
         PHASE 03
       </span>

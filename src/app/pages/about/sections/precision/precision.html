@@ -1,7 +1,7 @@
 <app-container>
   <section class="py-16 lg:py-24 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
     
-    <div class="w-full lg:w-1/2 flex justify-center">
+    <div fadeIn class="w-full lg:w-1/2 flex justify-center">
       <img 
         [src]="PrecisionImage" 
         alt="Precision Procedure" 
@@ -9,7 +9,7 @@
       />
     </div>
 
-    <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
+    <div fadeIn [fadeDelay]="150" class="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
       <h1 class="text-3xl md:text-5xl lg:text-[56px] text-black leading-tight mb-6">
         Precision in Every <br class="hidden lg:block" /> Procedure.
       </h1>

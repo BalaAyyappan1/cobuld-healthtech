@@ -2,7 +2,7 @@
   <section class="relative min-h-[586px] my-20 bg-[#F3F3F3] rounded-[2rem] overflow-hidden flex flex-col md:grid md:grid-cols-2 items-center">
     
     <!-- LEFT CONTENT -->
-    <div class="z-10 flex flex-col items-center md:items-start text-center md:text-left justify-center px-8 sm:px-12 md:pl-16 md:pr-10 py-16 md:py-12">
+    <div fadeIn class="z-10 flex flex-col items-center md:items-start text-center md:text-left justify-center px-8 sm:px-12 md:pl-16 md:pr-10 py-16 md:py-12">
       <h1 class="text-[14px] font-bold text-[#B7131A] mb-2 tracking-wider">OUR COMMITMENT</h1>
 
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black leading-[1.1] mb-6 tracking-tight">
@@ -18,7 +18,7 @@
     </div>
 
     <!-- RIGHT IMAGE -->
-    <div class="w-full flex items-center justify-center p-6 md:p-10">
+    <div fadeIn [fadeDelay]="150" class="w-full flex items-center justify-center p-6 md:p-10">
       <img 
         [src]="CommitImage" 
         alt="Our Commitment" 

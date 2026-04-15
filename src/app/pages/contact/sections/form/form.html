@@ -1,78 +1,117 @@
-<section class="py-20 bg-[#F9F9F9]">
+<section class="py-24 bg-[#F9F9F9]">
   <app-container>
+    <div fadeIn class="flex flex-col mt-10 mb-16">
+      <h1 class="text-[48px] tracking-tight md:text-[86px] text-[#1A1C1C] font-medium leading-[0.9]">
+        Get in <span class="text-[#B7131A]">touch.</span>
+      </h1>
+      <p class="text-gray-500 text-base md:text-lg max-w-xl mt-6 leading-relaxed">
+        Whether you have a question about eligibility, want to organize a local
+        camp, or need technical support, our team is ready to assist.
+      </p>
+    </div>
 
-
-         <div class="flex flex-col mb-10 pt-20">
-          <h1 class="text-[44px] tracking-tight md:text-[96px] text-[#1A1C1C] leading-none">
-            Get in <span class="text-[#B7131A]">touch.</span>
-          </h1>
-          <p class="text-gray-500 text-sm sm:text-base leading-relaxed max-w-lg mt-4">
-            Whether you have a question about eligibility, want to organize a local
-            camp, or need technical support, our team is ready to assist.
-          </p>
-        </div>
-
-    <div class="flex flex-col lg:flex-row gap-10 items-start">
-
-      <div class="w-full lg:w-[60%] flex flex-col gap-8">
-        <form class="flex flex-col justify-between bg-white p-6 md:p-8 rounded-[2rem] shadow-sm h-full lg:min-h-[600px]">
-          <div class="flex flex-col gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+      
+      <div fadeIn class="lg:col-span-7">
+     <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" 
+              class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-50 flex flex-col h-full">
+          
+          <div class="flex flex-col gap-8">
             <h2 class="text-2xl font-bold text-black">Send a Message</h2>
             
-            <div class="flex flex-col sm:flex-row gap-4">
-              <input type="text" placeholder="Full Name"
-                class="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[#B7131A] transition-all" />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex flex-col gap-2">
+                <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
+                <input type="text" name="name" [(ngModel)]="formData.name" required
+                  placeholder="John Doe"
+                  class="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-[#B7131A]/20 focus:border-[#B7131A] transition-all" />
+              </div>
 
-              <input type="email" placeholder="Email Address"
-                class="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[#B7131A] transition-all" />
+              <div class="flex flex-col gap-2">
+                <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Email Address</label>
+                <input type="email" name="email" [(ngModel)]="formData.email" required
+                  placeholder="john@example.com"
+                  class="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-[#B7131A]/20 focus:border-[#B7131A] transition-all" />
+              </div>
             </div>
 
-            <textarea rows="8" placeholder="Your Message"
-              class="w-full border border-gray-200 bg-gray-50 rounded-xl px-4 py-4 text-sm outline-none focus:ring-2 focus:ring-[#B7131A] resize-none transition-all"></textarea>
+            <div class="grid grid-cols-1  gap-6">
+              <div class="flex flex-col gap-2">
+                <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Phone Number</label>
+                <input type="tel" name="phone" [(ngModel)]="formData.phone"
+                  placeholder="+91 99999 88888"
+                  class="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-[#B7131A]/20 focus:border-[#B7131A] transition-all" />
+              </div>
+
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label class="text-xs font-bold uppercase tracking-widest text-gray-400 ml-1">Your Message</label>
+              <textarea name="message" [(ngModel)]="formData.message" rows="6" required
+                placeholder="How can we help you?"
+                class="w-full border border-gray-100 bg-gray-50 rounded-2xl px-5 py-4 text-sm outline-none focus:bg-white focus:ring-2 focus:ring-[#B7131A]/20 focus:border-[#B7131A] resize-none transition-all"></textarea>
+            </div>
           </div>
 
           <button type="submit"
-            class="mt-8 bg-[#B7131A] hover:bg-black text-white font-bold py-4 rounded-xl transition-all transform active:scale-95 shadow-lg">
-            Send Enquiry
+            [disabled]="isSubmitting"
+            class="mt-10 bg-[#B7131A] hover:bg-[#9a0f15] disabled:bg-gray-400 text-white font-bold py-5 rounded-2xl transition-all transform active:scale-[0.98] shadow-xl shadow-[#B7131A]/10">
+            {{ isSubmitting ? 'Submitting...' : 'Submit Inquiry' }}
           </button>
         </form>
       </div>
 
-      <div class="w-full lg:w-[40%] flex flex-col gap-4 self-stretch ">
+      <div fadeIn [fadeDelay]="150" class="lg:col-span-5 flex flex-col gap-6">
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-          <div class="bg-white border border-gray-100 rounded-2xl p-5 flex items-center gap-4 shadow-sm">
-            <div class="bg-[#B7131A]/10 p-3 rounded-lg">
-               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#B7131A]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        <a href="mailto:support@cobludhealthtech.com" class="group bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-all cursor-pointer">
+          <div class="flex items-start gap-6">
+            <div class="bg-[#B7131A] p-4 rounded-2xl group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
             </div>
-            <div>
-              <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider">Email Us</h3>
-              <p class="text-black font-semibold text-sm">support@cobludhealthtech.com</p>
-            </div>
-          </div>
-
-          <div class="bg-white border border-gray-100 rounded-2xl p-5 flex items-center gap-4 shadow-sm">
-            <div class="bg-[#B7131A]/10 p-3 rounded-lg">
-               <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-[#B7131A]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-            </div>
-            <div>
-              <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider">Call Support</h3>
-              <p class="text-black font-semibold text-sm">+91 7338778442</p>
+            <div class="flex flex-col">
+              <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Email Us</h3>
+              <p class="text-xl font-bold text-black">support@cobludhealthtech.com</p>
+              <p class="text-gray-400 text-sm mt-1">Response within 24 hours</p>
             </div>
           </div>
-        </div>
+        </a>
 
-        <div class="bg-white border border-gray-100 rounded-[2rem] overflow-hidden flex-grow shadow-sm min-h-[300px]">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093643!2d144.9537353153167!3d-37.81732767975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sau!4v1611554523126!5m2!1sen!2sau"
-            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-500"
-            loading="lazy">
-          </iframe>
+        <a href="tel:+917338778442" class="group bg-white border border-gray-100 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-all cursor-pointer">
+          <div class="flex items-start gap-6">
+            <div class="bg-[#B7131A] p-4 rounded-2xl group-hover:scale-110 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <h3 class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-1">Call Support</h3>
+              <p class="text-xl font-bold text-black">+91 73387 78442</p>
+              <p class="text-gray-400 text-sm mt-1">Mon - Fri, 9am - 6pm</p>
+            </div>
+          </div>
+        </a>
+
+        <div class="bg-black text-white rounded-[2rem] p-8 flex flex-col justify-center flex-grow">
+          <h3 class="text-lg font-bold mb-4">Why reach out?</h3>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3 text-gray-300 text-sm italic">
+              <span class="w-1.5 h-1.5 bg-[#B7131A] rounded-full"></span>
+              Request medical camp collaborations
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm italic">
+              <span class="w-1.5 h-1.5 bg-[#B7131A] rounded-full"></span>
+              Technical platform onboarding
+            </li>
+            <li class="flex items-center gap-3 text-gray-300 text-sm italic">
+              <span class="w-1.5 h-1.5 bg-[#B7131A] rounded-full"></span>
+              General health-tech inquiries
+            </li>
+          </ul>
         </div>
 
       </div>
-
-      
     </div>
   </app-container>
 </section>
